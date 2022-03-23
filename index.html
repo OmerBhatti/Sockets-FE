@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Chat Room</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container vh-100 d-flex justify-content-center align-items-center">
+          <div class="card p-3">
+              <h4>
+                  Chat Room
+              </h3>
+              <form  id="form" onsubmit="sendParams(event)">
+                  <input type = "text" class = "form-control mt-2 mb-2" placeholder = "Name" name = "username" required/>
+                  <input type = "text" class = "form-control mt-2 mb-2" placeholder = "Room Code" name = "room" required/>
+                  <input type="submit" class = "btn btn-success" value="Start Chat"/>
+              </form>
+          </div>
+      </div>
+  </body>
+    <script>
+        function sendParams(e){
+            e.preventDefault();
+            let name = document.getElementsByName("username")[0].value;
+            let room = btoa(document.getElementsByName("room")[0].value);
+            window.location = `chat.html?username=${name}&room=${room}`;
+        }
+    </script>
+</html>
